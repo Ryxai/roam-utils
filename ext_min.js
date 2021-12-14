@@ -28,7 +28,7 @@ regCommand = (e) => {
       : window.setTimeout(() => register(retry + 1), 1000);
   register(0);
 };
-window.sm-ext = {};
+window.sm_ext = {};
 regCommand({
    text: 'UPDATEPAGETITLE',
    help : "Updates the page title referenced by the first argument with the text in the rest.\n\n1. Page reference\n\n2. Text to update with",
