@@ -28,7 +28,7 @@ regCommand = (e) => {
       : window.setTimeout(() => register(retry + 1), 1000);
   register(0);
 };
-
+window.sm-ext = {};
 regCommand({
    text: 'UPDATEPAGETITLE',
    help : "Updates the page title referenced by the first argument with the text in the rest.\n\n1. Page reference\n\n2. Text to update with",
@@ -40,23 +40,23 @@ regCommand({
 });
 regCommand(
 {
-        text: "SETEXTVAR",
-        help: "Returns a variable from the smt-ext environment\n\n1. Variable name",
+        text: "SETGLOBVAR",
+        help: "Returns a global variable from the smt-ext environment\n\n1. Variable name",
         handler: () => (name, val) => {
                 window.sm_ext.vars[name] = val;
                 return "";
         }
 });
 regCommand({
-        text: "GETEXTVAR",
-        help: "Create a variable in memory in the smt-ext environment\n\n1. Variable name\n\n2: Value of variable",
+        text: "GETGLOBVAR",
+        help: "Create a variable in global memory in the smt-ext environment\n\n1. Variable name\n\n2: Value of variable",
         handler: () => (name) => {
                 return window.sm_ext.vars[name];
         }
 });
 regCommand({
   text: "CLEAREXTVAR",
-  help: "Deletes a variable from the smt-ext environment\n\n1. Variable name",
+  help: "Deletes a global variable from the smt-ext environment\n\n1. Variable name",
   handler: () => (name) => {
     delete window.sm_ext[name]
     return "";
