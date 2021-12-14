@@ -77,7 +77,7 @@ regCommand({
   text: "DELETEPAGE",
   help: "Deletes a page\n\n**WARNING: THIS IS IRREVERSIBLE BE CAREFUL BEFORE USING IT AND TEST THOUROUGHLY USE AT YOUR OWN RISK**\n\n1. Page uid",
   handler: () => (uid) => {
-    window.roamAlphaAPI.deletePage({block: {uid: uid}});
+    window.roamAlphaAPI.deletePage({page: {uid: uid}});
     return "";
   }
 });
