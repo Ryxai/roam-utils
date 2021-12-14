@@ -72,6 +72,7 @@ regCommand({
     window.roamAlphaAPI.deleteBlock({block: {uid: uid}});
     return "";
   }
+  });
   regCommand({
   text: "DELETEPAGE",
   help: "Deletes a page\n\n**WARNING: THIS IS IRREVERSIBLE BE CAREFUL BEFORE USING IT AND TEST THOUROUGHLY USE AT YOUR OWN RISK**\n\n1. Page uid",
@@ -79,12 +80,14 @@ regCommand({
     window.roamAlphaAPI.deletePage({block: {uid: uid}});
     return "";
   }
+});
   regCommand({
   text: "GETPAGEUIDOFBLOCK",
   help: "Returns the uid of the page the block belongs to\n\n1. Block uid",
   handler: () => (uid) => {
     return window.roamAlphaAPI.q('[:find ?puid :in $ ?uid :where [?b :block/uid ?uid][?b :block/page ?p][?p :block/uid ?puid]]',uid);
   }
+    });
   regCommand({
   text: "GETPAGETITLEOFBLOCK",
   help: "Returns the title of the page the block belongs to\n\n1. Block uid",
