@@ -29,6 +29,7 @@ regCommand = (e) => {
   register(0);
 };
 window.sm_ext = {};
+window.sm_ext.vars = {};
 regCommand({
    text: 'UPDATEPAGETITLE',
    help : "Updates the page title referenced by the first argument with the text in the rest.\n\n1. Page reference\n\n2. Text to update with",
