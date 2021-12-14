@@ -6,7 +6,7 @@ regCommand = (e) => {
     window.roamjs?.extension?.smartblocks?.registerCommand
       ? window.roamjs.extension.smartblocks.registerCommand({
           text,
-          jelp,
+          help,
           handler
         })
       : retry === 120 && window.roamjs
