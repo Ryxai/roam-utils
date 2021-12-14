@@ -52,7 +52,9 @@ regCommand({
         text: "GETGLOBVAR",
         help: "Create a variable in global memory in the smt-ext environment\n\n1. Variable name\n\n2: Value of variable",
         handler: () => (name) => {
-                return window.sm_ext.vars[name];
+          return typeof window.sm_ext.vars[name] === "undefined"
+            ? `--> Variable ${name} not SET <--`
+            : window.sm_ext.vars[name];
         }
 });
 regCommand({
