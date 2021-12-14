@@ -61,7 +61,7 @@ regCommand({
   text: "CLEARGLOBVAR",
   help: "Deletes a global variable from the smt-ext environment\n\n1. Variable name",
   handler: () => (name) => {
-    delete window.sm_ext[name]
+    delete window.sm_ext.vars[name]
     return "";
   }
 });
