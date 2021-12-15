@@ -99,6 +99,6 @@ regCommand({
   text: "EXTRACTREF",
   help: "Removes the reference parenthases from a blockuid\n\n1. Block reference",
   handler: () => (uid) => {
-    return uid.replace(/\(\)/g,"");
+    return uid.replace(/[\(\)]/g,"");
   } 
 });
