@@ -85,13 +85,20 @@ regCommand({
   text: "GETPAGEUIDOFBLOCK",
   help: "Returns the uid of the page the block belongs to\n\n1. Block uid",
   handler: () => (uid) => {
-    return window.roamAlphaAPI.q('[:find ?puid :in $ ?uid :where [?b :block/uid ?uid][?b :block/page ?p][?p :block/uid ?puid]]',uid).join("");;
+    return window.roamAlphaAPI.q('[:find ?puid :in $ ?uid :where [?b :block/uid ?uid][?b :block/page ?p][?p :block/uid ?puid]]',uid).join("");
   }
     });
   regCommand({
   text: "GETPAGETITLEOFBLOCK",
   help: "Returns the title of the page the block belongs to\n\n1. Block uid",
   handler: () => (uid) => {
-    return window.roamAlphaAPI.q('[:find ?title :in $ ?uid :where [?b :block/uid ?uid][?b :block/page ?p][?p :node/title ?title]]',uid).join("");;
+    return window.roamAlphaAPI.q('[:find ?title :in $ ?uid :where [?b :block/uid ?uid][?b :block/page ?p][?p :node/title ?title]]',uid).join("");
+  } 
+});
+  regCommand({
+  text: "EXTRACTREF",
+  help: "Removes the reference parenthases from a blockuid\n\n1. Block reference",
+  handler: () => (uid) => {
+    return uid.replace(/\(\)/g,"");
   } 
 });
