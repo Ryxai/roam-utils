@@ -102,3 +102,12 @@ regCommand({
     return uid.replace(/[\(\)]/g,"");
   } 
 });
+  regCommand({
+  text: "CREATEBLOCK",
+  help: "Creates a block under the target parent\n\n1. Parent block reference\n\n2. Block order (the location of the block in the list\n\n3.A string containing the content",
+  handler: () => (uid, index, ...rest) => {
+    const content = rest.join(',');
+    window.roamAlphaAPI.createBlock({location: {parent-uid: uid,order: index}, block: {string: content}});
+    return "";
+  } 
+});
