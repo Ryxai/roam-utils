@@ -29,7 +29,7 @@ The following commands are currently implemented:
   * DELETEPAGE:         Deletes a page
                         Argument 1: The uid of the page
 
-  ** THE FOLLOWING COMMANDS ARE FOR MANIPULATING/RETRIEVING PAGE DATA**
+  **THE FOLLOWING COMMANDS ARE FOR MANIPULATING/RETRIEVING PAGE DATA**
 
   * UPDATEPAGETITLE:    Updates the page title referenced by the first argument with the text in the rest.
                         Argument 1: The uid of the pagetitle
