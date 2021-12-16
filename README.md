@@ -3,9 +3,9 @@ Hosting for some roam utility scripts
 
 [ext_min](https://ryxai.github.io/roam-utils/ext_min.js): A set of smartblock commands to extend the existing ones without having to reload the entire script.
 The following commands are currently implemented:
-  ***** NOTE THE FOLLOWING COMMANDS SHOULD BE USED SPARINGLY AS GLOBAL VARIABLES CAN COLLIDE ETC AND CAUSE ISSUES WITH YOUR GRAPH **
-  ** THESE VARIABLES WILL PERSIST FOR THE DURATION OF YOUR SESSION UNLESS YOU MANUALLY DELETE THEM OR REFRESH/CLOSE ROAM **
-  ** IF YOU NEED ACCESS TO THESE VARIABLES THROUGH JAVASCRIPT THEY CAN BE ACCESSED AT window.smt-ext.vars **
+   **NOTE THE FOLLOWING COMMANDS SHOULD BE USED SPARINGLY AS GLOBAL VARIABLES CAN COLLIDE ETC AND CAUSE ISSUES WITH YOUR GRAPH**
+  **THESE VARIABLES WILL PERSIST FOR THE DURATION OF YOUR SESSION UNLESS YOU MANUALLY DELETE THEM OR REFRESH/CLOSE ROAM**
+  **IF YOU NEED ACCESS TO THESE VARIABLES THROUGH JAVASCRIPT THEY CAN BE ACCESSED AT window.smt-ext.vars**
   
   * GETGLOBVAR:         Returns a global variable, will be returned as a string
                         Argument 1: The variable name
@@ -17,8 +17,8 @@ The following commands are currently implemented:
   * CLEARGLOBVAR:       Deletes a global variable\
                         Argument 1: The variable name
   
-  ** NOTE THE FOLLOWING COMMANDS ARE IRREVERSIBLE AND CAUSE DATA LOSS IF USED, TEST YOUR USAGE THOROUGHLY BEFORE IMPLEMENTING THEM
-  ** ON MEANINGFUL DATA. THEY ARE USED AT YOUR OWN RISK**
+  **NOTE THE FOLLOWING COMMANDS ARE IRREVERSIBLE AND CAUSE DATA LOSS IF USED, TEST YOUR USAGE THOROUGHLY BEFORE IMPLEMENTING THEM**
+  **ON MEANINGFUL DATA. THEY ARE USED AT YOUR OWN RISK**
 
   * DELETEBLOCK:        Deletes a block
                         Argument 1: The uid of the block
@@ -41,9 +41,9 @@ The following commands are currently implemented:
   * EXTRACTREF:         Removes the reference parentheses from a block reference
                         Argument 1: The block reference
                         
-  ** THE FOLLOWING COMMANDS ARE USED TO CREATE ELEMENTS IN A PAGE **
-  ** THE WAY BLOCK ORDER IS USED IS THAT EACH BLOCK IN ORDER IS DISPLAYED AS CHILDREN STARTING WITH 0.**
-  ** TO APPEAR AT THE TOP OF THE CHILDREN USE 0 FOR THE BLOCK ORDER**
+  **THE FOLLOWING COMMANDS ARE USED TO CREATE ELEMENTS IN A PAGE**
+  **THE WAY BLOCK ORDER IS USED IS THAT EACH BLOCK IN ORDER IS DISPLAYED AS CHILDREN STARTING WITH 0**
+  **TO APPEAR AT THE TOP OF THE CHILDREN USE 0 FOR THE BLOCK ORDER**
   
   * CREATEBLOCK:        Creates a block under the provided parent block (can be a page)
                         Argument 1: Parent block reference
