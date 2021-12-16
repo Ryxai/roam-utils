@@ -63,5 +63,5 @@ The following commands are currently implemented:
         Argument 2: Block order
         Argument 3: The contents to be placed in the block
 ***
-[roamjs-google-custom](https://ryxai.github.io/roam-utils/roamjs-google-custom): A modified version of roamjs-google by [David Vargas](https://github.com/dvargas92495). Currently adds oauth permissions for tasks api. May include more in the future.
+[roamjs-google-custom](https://ryxai.github.io/roam-utils/roamjs-google-custom.js): A modified version of roamjs-google by [David Vargas](https://github.com/dvargas92495). Currently adds oauth permissions for tasks api. May include more in the future.
 
