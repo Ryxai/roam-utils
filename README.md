@@ -4,6 +4,7 @@ Hosting for some roam utility scripts
 [ext_min](https://ryxai.github.io/roam-utils/ext_min.js): A set of smartblock commands to extend the existing ones without having to reload the entire script.
 The following commands are currently implemented:
 
+***
 
    **NOTE THE FOLLOWING COMMANDS SHOULD BE USED SPARINGLY AS GLOBAL VARIABLES CAN COLLIDE ETC AND CAUSE ISSUES WITH YOUR GRAPH**
   **THESE VARIABLES WILL PERSIST FOR THE DURATION OF YOUR SESSION UNLESS YOU MANUALLY DELETE THEM OR REFRESH/CLOSE ROAM**
