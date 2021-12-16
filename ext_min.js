@@ -54,7 +54,7 @@ regCommand({
         handler: () => (name) => {
           return typeof window.sm_ext.vars[name] === "undefined"
             ? `--> Variable ${name} not SET <--`
-            : window.sm_ext.vars[name];
+            : window.sm_ext.vars[name].join("");
         }
 });
 regCommand({
@@ -97,7 +97,7 @@ regCommand({
 });
   regCommand({
   text: "EXTRACTREF",
-  help: "Removes the reference parenthases from a blockuid\n\n1. Block reference",
+  help: "Removes the reference parentheses from a blockuid\n\n1. Block reference",
   handler: () => (uid) => {
     return uid.replace(/[\(\)]/g,"");
   } 
