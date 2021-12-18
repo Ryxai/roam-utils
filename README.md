@@ -7,7 +7,9 @@ The following commands are currently implemented:
 ***
 
    **NOTE THE FOLLOWING COMMANDS SHOULD BE USED SPARINGLY AS GLOBAL VARIABLES CAN COLLIDE ETC AND CAUSE ISSUES WITH YOUR GRAPH**
+   
   **THESE VARIABLES WILL PERSIST FOR THE DURATION OF YOUR SESSION UNLESS YOU MANUALLY DELETE THEM OR REFRESH/CLOSE ROAM**
+  
   **IF YOU NEED ACCESS TO THESE VARIABLES THROUGH JAVASCRIPT THEY CAN BE ACCESSED AT window.smt-ext.vars**
   
   * GETGLOBVAR:         Returns a global variable, will be returned as a string
@@ -24,6 +26,7 @@ The following commands are currently implemented:
         Argument 1: The variable name
   
   **NOTE THE FOLLOWING COMMANDS ARE IRREVERSIBLE AND CAUSE DATA LOSS IF USED, TEST YOUR USAGE THOROUGHLY BEFORE IMPLEMENTING THEM**
+  
   **ON MEANINGFUL DATA. THEY ARE USED AT YOUR OWN RISK**
 
   * DELETEBLOCK:        Deletes a block
@@ -54,7 +57,9 @@ The following commands are currently implemented:
         Argument 1: The block reference
                         
   **THE FOLLOWING COMMANDS ARE USED TO CREATE ELEMENTS IN A PAGE**
+  
   **THE WAY BLOCK ORDER IS USED IS THAT EACH BLOCK IN ORDER IS DISPLAYED AS CHILDREN STARTING WITH 0**
+  
   **TO APPEAR AT THE TOP OF THE CHILDREN USE 0 FOR THE BLOCK ORDER**
   
   * CREATEBLOCK:        Creates a block under the provided parent block (can be a page)
@@ -62,4 +67,6 @@ The following commands are currently implemented:
         Argument 1: Parent block reference
         Argument 2: Block order
         Argument 3: The contents to be placed in the block
+***
+[roamjs-google-custom](https://ryxai.github.io/roam-utils/roamjs-google-custom.js): A modified version of roamjs-google by [David Vargas](https://github.com/dvargas92495). Currently adds oauth permissions for tasks api. May include more in the future.
 
