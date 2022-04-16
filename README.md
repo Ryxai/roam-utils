@@ -1,7 +1,7 @@
 # roam-utils
 Hosting for some roam utility scripts
 
-[ext_min](https://ryxai.github.io/roam-utils/ext_min.js): A set of smartblock commands to extend the existing ones without having to reload the entire script.
+[ext_min](https://ryxai.github.io/roam-utils/ext_min.js): A set of smartblock commands to extend the core ones without having to modify the original script.
 The following commands are currently implemented:
 
 ***
