@@ -111,3 +111,27 @@ regCommand({
     return "";
   } 
 });
+  regCommand({
+    text: "SIDEBARWINDOWCLOSE",
+    help: "Closes sidebar pane\n\n1. number of side pane to close. Use 0 to close all panes."
+    handler: numberArg = "0") => {
+      const count = Number(numberArg) || 0;
+      const windows = window.roamAlphaAPI.ui.rightSidebar.getWindows();
+      if (count <= 0) {
+        windows.forEach((w) =>
+          window.roamAlphaAPI.ui.rightSidebar.removeWindow({
+            // @ts-ignore broken api
+            window: {'type': w.type, 'block-uid': w.type === "block" ? w['block-uid'] : w['page-uid']}
+          })
+        );
+        window.roamAlphaAPI.ui.rightSidebar.close();
+      } else if (count <= windows.length) {
+        w = windows[count];
+        window.roamAlphaAPI.ui.rightSidebar.removeWindow({
+          // @ts-ignore broken api
+          window: 'type': w.type, 'block-uid': w.type === "block" ? w['block-uid'] : w['page-uid']}
+        });
+      }
+      return "";
+    }
+})
