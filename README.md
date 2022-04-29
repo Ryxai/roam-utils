@@ -26,7 +26,6 @@ The following commands are currently implemented:
         Argument 1: The variable name
   
   **NOTE THE FOLLOWING COMMANDS ARE IRREVERSIBLE AND CAUSE DATA LOSS IF USED, TEST YOUR USAGE THOROUGHLY BEFORE IMPLEMENTING THEM**
-  
   **ON MEANINGFUL DATA. THEY ARE USED AT YOUR OWN RISK**
 
   * DELETEBLOCK:        Deletes a block
