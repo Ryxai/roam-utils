@@ -6,11 +6,7 @@ The following commands are currently implemented:
 
 ***
 
-   **NOTE THE FOLLOWING COMMANDS SHOULD BE USED SPARINGLY AS GLOBAL VARIABLES CAN COLLIDE ETC AND CAUSE ISSUES WITH YOUR GRAPH**
-   
-  **THESE VARIABLES WILL PERSIST FOR THE DURATION OF YOUR SESSION UNLESS YOU MANUALLY DELETE THEM OR REFRESH/CLOSE ROAM**
-  
-  **IF YOU NEED ACCESS TO THESE VARIABLES THROUGH JAVASCRIPT THEY CAN BE ACCESSED AT window.smt-ext.vars**
+   **NOTE** The following commands should be used sparingly as global variables can collide etc and cause issues with your graph is recklessly utilized. The variables and their contents will persist for the duration of the session within the window. They will be purged if you close or refesh Roam. The variables can be programmatically accessed by `window.smt-ext.vars`. 
   
   * GETGLOBVAR:         Returns a global variable, will be returned as a string
                         
@@ -25,8 +21,7 @@ The following commands are currently implemented:
                         
         Argument 1: The variable name
   
-  **NOTE THE FOLLOWING COMMANDS ARE IRREVERSIBLE AND CAUSE DATA LOSS IF USED, TEST YOUR USAGE THOROUGHLY BEFORE IMPLEMENTING THEM**
-  **ON MEANINGFUL DATA. THEY ARE USED AT YOUR OWN RISK**
+  **NOTE** THhe following commands when used cause irreversible data loss. Before using a smartblock containing them on your information please test the block you are using/writing thoroughly (preferably on another graph). They are used **AT YOUR OWN RISK**. 
 
   * DELETEBLOCK:        Deletes a block
                         
@@ -36,7 +31,7 @@ The following commands are currently implemented:
                         
         Argument 1: The uid of the page
 
-  **THE FOLLOWING COMMANDS ARE FOR MANIPULATING/RETRIEVING PAGE DATA**
+ THe following commands are for manipulating retrieveing page data.
 
   * UPDATEPAGETITLE:    Updates the page title referenced by the first argument with the text in the rest.
                         
@@ -55,11 +50,7 @@ The following commands are currently implemented:
                         
         Argument 1: The block reference
                         
-  **THE FOLLOWING COMMANDS ARE USED TO CREATE ELEMENTS IN A PAGE**
-  
-  **THE WAY BLOCK ORDER IS USED IS THAT EACH BLOCK IN ORDER IS DISPLAYED AS CHILDREN STARTING WITH 0**
-  
-  **TO APPEAR AT THE TOP OF THE CHILDREN USE 0 FOR THE BLOCK ORDER**
+  The following commands are used to create elements in a page. Blocks are indexed from 0, meaning that the first block at the top of the list would be index 0. 
   
   * CREATEBLOCK:        Creates a block under the provided parent block (can be a page)
  
