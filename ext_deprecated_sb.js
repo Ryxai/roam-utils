@@ -33,64 +33,58 @@ regCommand = (e) => {
 regCommand( {
     text: "IF",
     help: "DEPRECATED",
-    handler: (condition = "false", then, els) => {
-      try {
-        const evaluated = eval(condition);
-        if (evaluated) {
-          if (then) {
-            return then;
-          } else {
-            smartBlocksContext.ifCommand = true;
-            return "";
-          }
-        } else {
-          if (els) {
-            return els;
-          } else {
-            smartBlocksContext.ifCommand = false;
-            return "";
-          }
-        }
-      } catch (e) {
-        return `Failed to evaluate IF condition: ${e.message}`;
-      }
-    },
+    handler:  function handler() {
+                    var condition = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "false"
+                      , then = arguments.length > 1 ? arguments[1] : void 0
+                      , els = arguments.length > 2 ? arguments[2] : void 0;
+                    try {
+                        var evaluated = eval(condition);
+                        return evaluated ? then || (smartBlocksContext.ifCommand = !0,
+                        "") : els || (smartBlocksContext.ifCommand = !1,
+                        "")
+                    } catch (e) {
+                        return "Failed to evaluate IF condition: ".concat(e.message)
+                    }
+                
+    }
   });
   regCommand({text: "THEN",
     delayArgs: true,
     help: "Used with IF when IF is true\n\n1: Text to be inserted",
-    handler: (...args: string[]) => {
-      if (smartBlocksContext.ifCommand) {
-        smartBlocksContext.ifCommand = undefined;
-        return proccessBlockText(args.join(","));
-      }
-      return "";
+    handler:  function() {
+                    if (smartBlocksContext.ifCommand) {
+                        smartBlocksContext.ifCommand = void 0;
+                        for (var e = arguments.length, t = new Array(e), u = 0; u < e; u++)
+                            t[u] = arguments[u];
+                        return proccessBlockText(t.join(","))
+                    }
+                    return ""
     },
   });
   regCommand({
     text: "ELSE",
     help: "Used with IF when IF is false\n\n1: Text to be inserted",
-    handler: (...args: string[]) => {
-      if (smartBlocksContext.ifCommand === false) {
-        smartBlocksContext.ifCommand = undefined;
-        return args.join(",");
-      }
-      return "";
-    },
+    handler: function() {
+                    if (!1 === smartBlocksContext.ifCommand) {
+                        smartBlocksContext.ifCommand = void 0;
+                        for (var e = arguments.length, t = new Array(e), u = 0; u < e; u++)
+                            t[u] = arguments[u];
+                        return t.join(",")
+                    }
+                    return ""
+    }
   });
   regCommand({
     text: "IFTRUE",
     help: "Test if parameter is true. If true, the block is output.\n\n1: Logic to be evaluated",
-    handler: (condition) => {
-      try {
-        if (!eval(condition)) {
-          smartBlocksContext.exitBlock = "yes";
-        }
-        return "";
-      } catch (e) {
-        return `Failed to evaluate IFTRUE condition: ${e.message}`;
-      }
-    },
+    handler: function handler(condition) {
+                    try {
+                        return eval(condition) || (smartBlocksContext.exitBlock = "yes"),
+                        ""
+                    } catch (e) {
+                        return "Failed to evaluate IFTRUE condition: ".concat(e.message)
+                    }
+                }
   });
   regCommand({
     text: "JA",
