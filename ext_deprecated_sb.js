@@ -1,4 +1,46 @@
-regCommand = (e) => {
+const javascriptHandler =
+  (fcn: FunctionConstructor): CommandHandler =>
+  (...args) => {
+    const content = args.join(",");
+    const code = content
+      .replace(/^\s*```javascript(\n)?/, "")
+      .replace(/(\n)?```\s*$/, "")
+      .replace(/^\s*`/, "")
+      .replace(/`\s*$/, "");
+    const justVariables = Object.entries(smartBlocksContext.variables)
+      .map(([k, v]) => [k.replace(/^\d+/, ""), v])
+      .filter(([s]) => !!s);
+    const variables = smartBlocksContext.dateBasisMethod
+      ? justVariables.concat([
+          ["DATEBASISMETHOD", smartBlocksContext.dateBasisMethod],
+        ])
+      : justVariables;
+    return Promise.resolve(
+      new fcn(...variables.map((v) => v[0]), code)(
+        ...variables.map((v) => v[1])
+      )
+    ).then((result) => {
+      if (typeof result === "undefined" || result === null) {
+        return "";
+      } else if (Array.isArray(result)) {
+        return result.map((r) => {
+          if (typeof r === "undefined" || r === null) {
+            return "";
+          } else if (typeof r === "object") {
+            return {
+              text: (r.text || "").toString(),
+              children: [...r.children],
+            };
+          } else {
+            return r.toString();
+          }
+        });
+      } else {
+        return result.toString();
+      }
+    });
+  };
+const regCommand = (e) => {
   const text = e.text.toUpperCase();
   const help = e.help;
   const handler = e.handler;
