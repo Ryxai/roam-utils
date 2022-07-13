@@ -124,20 +124,20 @@ regCommand( {
   regCommand({
     text: "JA",
     help: "DEPRECATED",
-    handler: javascriptHandler(asyncFunction)
+    handler: (asyncFunction) => javascriptHandler(asyncFunction)
   });
   regCommand({
     text: "JAVASCRIPTASYNC",
     help: "DEPRECATED",
-    handler: javascriptHandler(asyncFunction),
+    handler: (asyncFunction) => javascriptHandler(asyncFunction)
   });
   regCommand({
     text: "J",
     help: "DEPRECATED",
-    handler: javascriptHandler(func),
+    handler: (func) => javascriptHandler(func)
   });
   regCommand({
       text: "JAVASCRIPT",
     help: "DEPRECATED",
-    handler: javascriptHandler(func)
+    handler: (func) => javascriptHandler(func)
   });
