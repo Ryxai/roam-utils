@@ -4,6 +4,8 @@ Hosting for some roam utility scripts
 [ext_min](https://ryxai.github.io/roam-utils/ext_min.js): A set of smartblock commands to extend the core ones without having to modify the original script.
 The following commands are currently implemented:
 
+[ext_deprecated_sb](https://ryxai.github.io/roam-utils/ext_deprecated_sb.js): A set of deprecated commands from smartblocks. Note that this is NOT intended as a fix for long term use. Please migrate as requested, leaving your graph open to attack is definitely a bad idea. This will remain up for the forseeable future but do not rely on its long-term presence. 
+
 ***
 
    **NOTE** The following commands should be used sparingly as global variables can collide etc and cause issues with your graph is recklessly utilized. The variables and their contents will persist for the duration of the session within the window. They will be purged if you close or refesh Roam. The variables can be programmatically accessed by `window.smt-ext.vars`. 
