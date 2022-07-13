@@ -2,7 +2,8 @@ regCommand = (e) => {
   const text = e.text.toUpperCase();
   const help = e.help;
   const handler = e.handler;
-  const register = (retry) =>
+  const register = (retry) => {
+    window.roamjs?.extension?.smartblocks?.unregisterCommand(text);
     window.roamjs?.extension?.smartblocks?.registerCommand
       ? window.roamjs.extension.smartblocks.registerCommand({
           text,
@@ -26,6 +27,7 @@ regCommand = (e) => {
           },
         })
       : window.setTimeout(() => register(retry + 1), 1000);
+  }
   register(0);
 };
 regCommand( {
