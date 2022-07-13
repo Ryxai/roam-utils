@@ -1,44 +1,38 @@
-const javascriptHandler =
-  (fcn: FunctionConstructor): CommandHandler =>
-  (...args) => {
-    const content = args.join(",");
-    const code = content
-      .replace(/^\s*```javascript(\n)?/, "")
-      .replace(/(\n)?```\s*$/, "")
-      .replace(/^\s*`/, "")
-      .replace(/`\s*$/, "");
-    const justVariables = Object.entries(smartBlocksContext.variables)
-      .map(([k, v]) => [k.replace(/^\d+/, ""), v])
-      .filter(([s]) => !!s);
-    const variables = smartBlocksContext.dateBasisMethod
-      ? justVariables.concat([
-          ["DATEBASISMETHOD", smartBlocksContext.dateBasisMethod],
-        ])
-      : justVariables;
-    return Promise.resolve(
-      new fcn(...variables.map((v) => v[0]), code)(
-        ...variables.map((v) => v[1])
-      )
-    ).then((result) => {
-      if (typeof result === "undefined" || result === null) {
-        return "";
-      } else if (Array.isArray(result)) {
-        return result.map((r) => {
-          if (typeof r === "undefined" || r === null) {
-            return "";
-          } else if (typeof r === "object") {
-            return {
-              text: (r.text || "").toString(),
-              children: [...r.children],
-            };
-          } else {
-            return r.toString();
-          }
-        });
-      } else {
-        return result.toString();
-      }
-    });
+const javascriptHandler = function(e) {
+                return function() {
+                    for (var t = arguments.length, u = new Array(t), r = 0; r < t; r++)
+                        u[r] = arguments[r];
+                    var n = u.join(",")
+                      , a = n.replace(/^\s*```javascript(\n)?/, "").replace(/(\n)?```\s*$/, "").replace(/^\s*`/, "").replace(/`\s*$/, "")
+                      , d = Object.entries(smartBlocksContext.variables).map((function(e) {
+                        var t = _slicedToArray(e, 2)
+                          , u = t[0]
+                          , r = t[1];
+                        return [u.replace(/^\d+/, ""), r]
+                    }
+                    )).filter((function(e) {
+                        return !!_slicedToArray(e, 1)[0]
+                    }
+                    ))
+                      , o = smartBlocksContext.dateBasisMethod ? d.concat([["DATEBASISMETHOD", smartBlocksContext.dateBasisMethod]]) : d;
+                    return Promise.resolve(_construct(e, _toConsumableArray(o.map((function(e) {
+                        return e[0]
+                    }
+                    ))).concat([a])).apply(void 0, _toConsumableArray(o.map((function(e) {
+                        return e[1]
+                    }
+                    ))))).then((function(e) {
+                        return null == e ? "" : Array.isArray(e) ? e.map((function(e) {
+                            return null == e ? "" : "object" === _typeof(e) ? {
+                                text: (e.text || "").toString(),
+                                children: _toConsumableArray(e.children)
+                            } : e.toString()
+                        }
+                        )) : e.toString()
+                    }
+                    ))
+                }
+            }
   };
 const regCommand = (e) => {
   const text = e.text.toUpperCase();
