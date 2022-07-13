@@ -32,8 +32,7 @@ const javascriptHandler = function(e) {
                     }
                     ))
                 }
-            }
-  };
+            };
 const regCommand = (e) => {
   const text = e.text.toUpperCase();
   const help = e.help;
