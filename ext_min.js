@@ -139,6 +139,6 @@ regCommand({
   text: "GETCHILDREN",
   help: "Gets the uids of the children blocks.\n\n1. The uid of the block to get the children of",
   handler: () => (uid) => {
-    return window.roamAlphaAPI.data.q('[:find ?cuid $ :in ?uid ?:where [?uid :block/children ?cuid]]',uid).join(" ");
+    return window.roamAlphaAPI.data.q('[:find ?cuids :in $ ?uid :where [?p :block/uid ?uid][?p :block/children ?cuids]]',uid).join(" ");
   } 
 });
