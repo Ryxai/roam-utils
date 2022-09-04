@@ -129,7 +129,7 @@ regCommand({
         w = windows[count];
         window.roamAlphaAPI.ui.rightSidebar.removeWindow({
           // @ts-ignore broken api
-          window: 'type': w.type, 'block-uid': w.type === "block" ? w['block-uid'] : w['page-uid']}
+          window: {'type': w.type, 'block-uid': w.type === "block" ? w['block-uid'] : w['page-uid']}
         });
       }
       return "";
