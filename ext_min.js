@@ -113,7 +113,7 @@ regCommand({
 });
   regCommand({
     text: "SIDEBARWINDOWCLOSE",
-    help: "Closes sidebar pane\n\n1. number of side pane to close. Use 0 to close all panes."
+    help: "Closes sidebar pane\n\n1. number of side pane to close. Use 0 to close all panes.",
     handler: (numberArg = "0") => {
       const count = Number(numberArg) || 0;
       const windows = window.roamAlphaAPI.ui.rightSidebar.getWindows();
