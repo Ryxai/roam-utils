@@ -137,9 +137,9 @@ regCommand({
 });
 regCommand({
   text: "GETCHILDREN",
-  help: "Gets the uids of the children blocks.\n\n1. The uid of the block to get the children of\n\n2. The characted used to join multiple entries",
-  handler: () => (uid, joiner = " ") => {
-    return window.roamAlphaAPI.data.q('[:find ?cuids :in $ ?uid :where [?p :block/uid ?uid][?p :block/children ?cid][?cid :block/uid ?cuids]]',uid).join(joiner);
+  help: "Gets the text of the children blocks.\n\n1. The uid of the block to get the children of\n\n2. The character used to join multiple entries",
+  handler: () => (uid, delim = " ") => {
+    return window.roamAlphaAPI.data.q('[:find ?contents :in $ ?uid :where [?p :block/uid ?uid][?p :block/children ?cid][?cid :block/string ?contents]]',uid).join(delim);
   } 
 });
 regCommand({
@@ -161,5 +161,12 @@ regCommand({
   help: "Join the elements of the text with the provided delimiter\n\n1. The delimiter used to join the characters\n\n2. The text to join",
   handler: () => (delim,...rest) => {
     return rest.join(delim);
+  } 
+});
+regCommand({
+  text: "GETCHILDRENUIDS",
+  help: "Gets the uids of the children blocks.\n\n1. The uid of the block to get the children of\n\n2. The character used to join multiple entries",
+  handler: () => (uid, delim = " ") => {
+    return window.roamAlphaAPI.data.q('[:find ?cuids :in $ ?uid :where [?p :block/uid ?uid][?p :block/children ?cid][?cid :block/uid ?cuids]]',uid).join(delim);
   } 
 });
