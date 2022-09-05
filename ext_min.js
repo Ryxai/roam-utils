@@ -142,3 +142,10 @@ regCommand({
     return window.roamAlphaAPI.data.q('[:find ?cuids :in $ ?uid :where [?p :block/uid ?uid][?p :block/children ?cid][?cid :block/uid ?cuids]]',uid).join(" ");
   } 
 });
+regCommand({
+  text: "SPLIT",
+  help: "Split the block of text using the provided delimiter.\n\n1. The block of text\n\n2. The delimiter",
+  handler: () => (text,delim) => {
+    return text.split(delim);
+  } 
+});
