@@ -33,14 +33,14 @@ The following commands are currently implemented:
                         
         Argument 1: The uid of the page
 
- THe following commands are for manipulating retrieveing page data.
+ THe following commands are for manipulating/retrieving page data.
 
-  * UPDATEPAGETITLE:    Updates the page title referenced by the first argument with the text in the rest.
+  * UPDATEPAGETITLE: Updates the page title referenced by the first argument with the text in the rest.
                         
         Argument 1: The uid of the pagetitle
         Argument 2: The text the pagetitle will be updated to
 
-  * GETPAGEUIDOFBLOCK:  Returns the uid of the page the specified block belongs to
+  * GETPAGEUIDOFBLOCK: Returns the uid of the page the specified block belongs to
                         
         Argument 1: The block uid
 
@@ -48,14 +48,25 @@ The following commands are currently implemented:
                         
         Argument 1: The block uid
 
-  * EXTRACTREF:         Removes the reference parentheses from a block reference
+  * EXTRACTREF: Removes the reference parentheses from a block reference
                         
         Argument 1: The block reference
+  
+  * GETCHILDREN: Gets the uids of the children blocks.
+  
+        Argument 1 : The uid of the block to get the children of
                         
   The following commands are used to create elements in a page. Blocks are indexed from 0, meaning that the first block at the top of the list would be index 0. 
   
-  * CREATEBLOCK:        Creates a block under the provided parent block (can be a page)
+  * CREATEBLOCK: Creates a block under the provided parent block (can be a page)
  
         Argument 1: Parent block reference
         Argument 2: Block order
         Argument 3: The contents to be placed in the block
+ 
+  The following commands are used to manipulate text
+  
+  * SPLIT : Split the block of text using the provided delimiter
+       
+        Argument 1: The block of text
+        Argument 2: The delimiter 
