@@ -137,9 +137,9 @@ regCommand({
 });
 regCommand({
   text: "GETCHILDREN",
-  help: "Gets the uids of the children blocks.\n\n1. The uid of the block to get the children of",
-  handler: () => (uid) => {
-    return window.roamAlphaAPI.data.q('[:find ?cuids :in $ ?uid :where [?p :block/uid ?uid][?p :block/children ?cid][?cid :block/uid ?cuids]]',uid).join(" ");
+  help: "Gets the uids of the children blocks.\n\n1. The uid of the block to get the children of\n\n2. The characted used to join multiple entries",
+  handler: () => (uid, joiner = " ") => {
+    return window.roamAlphaAPI.data.q('[:find ?cuids :in $ ?uid :where [?p :block/uid ?uid][?p :block/children ?cid][?cid :block/uid ?cuids]]',uid).join(joiner);
   } 
 });
 regCommand({
@@ -153,6 +153,13 @@ regCommand({
   text: "GETPAGEUIDFROMTITLE",
   help: "Get the page uid given the title\n\n1. The page title",
   handler: () => (title) => {
-    return window.roamAlphaAPI.data.q("[:find ?uid :in $ ?title :where [?p :node/title ?title][?p :block/uid ?uid]]",title).join("")
+    return window.roamAlphaAPI.data.q("[:find ?uid :in $ ?title :where [?p :node/title ?title][?p :block/uid ?uid]]",title).join("");
+  } 
+});
+regCommand({
+  text: "JOIN",
+  help: "Join the elements of the text with the provided delimiter\n\n1. The delimiter used to join the characters\n\n2. The text to join",
+  handler: () => (delim,...rest) => {
+    return rest.join(delim);
   } 
 });
