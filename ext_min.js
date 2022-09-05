@@ -149,3 +149,10 @@ regCommand({
     return text.split(delim);
   } 
 });
+regCommand({
+  text: "GETPAGEUIDFROMTITLE",
+  help: "Get the page uid given the title\n\n1. The page title",
+  handler: () => (title) => {
+    return window.roamAlphaAPI.data.q("[:find ?uid :in $ ?title :where [?p :node/title ?title][?p :block/uid ?uid]]",title).join("")
+  } 
+});
